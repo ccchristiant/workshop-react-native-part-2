@@ -10,6 +10,7 @@ import CurrentWeather from './components/CurrentWeather'
 const API_URL = (lat, lon) => `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={API_KEY}&lang=fr&units=metric`
 
 export default function App() {
+  const [loading, setLoading] = useState(true)
   const [data, setData] = useState(null)
 
   useEffect(() => {
@@ -29,12 +30,13 @@ export default function App() {
       const response = await axios.get(API_URL(location.coords.latitude, location.coords.longitude))
 
       setData(response.data)
+      setLoading(false)
     } catch(e) {
       console.log(e)
     }
   }
 
-  if (!data) {
+  if (loading) {
     return (
       <View style={styles.container}>
         <ActivityIndicator />
