@@ -7,14 +7,13 @@ import axios from 'axios'
 import CurrentWeather from './components/CurrentWeather'
 
 // replace the API_KEY with your own
-const API_URL = (lat, lon) => `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={API_KEY}=fr&units=metric`
+const API_URL = (lat, lon) => `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={API_KEY}&lang=fr&units=metric`
 
 export default function App() {
-  const [loading, setLoading] = useState(true)
   const [data, setData] = useState(null)
 
   useEffect(() => {
-    const getCoordinates = async () => {
+    (async () => {
       const { status } = await Location.requestForegroundPermissionsAsync()
       if (status !== "granted") {
         return
@@ -22,9 +21,7 @@ export default function App() {
 
       const userLocation = await Location.getCurrentPositionAsync()
       getWeather(userLocation)
-    }
-
-    getCoordinates()
+    })()
   }, [])
 
   const getWeather = async (location) => {
@@ -32,13 +29,12 @@ export default function App() {
       const response = await axios.get(API_URL(location.coords.latitude, location.coords.longitude))
 
       setData(response.data)
-      setLoading(false)
     } catch(e) {
-      console.log("Error in getWeather")
+      console.log(e)
     }
   }
 
-  if (loading) {
+  if (!data) {
     return (
       <View style={styles.container}>
         <ActivityIndicator />
