@@ -8,7 +8,7 @@ import axios from 'axios'
 import CurrentWeather from './components/CurrentWeather'
 
 // replace the API_KEY with your own
-const API_URL = (lat, lon) => `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=745819f7e923406a169c4c0c4e48e8fa&lang=fr&units=metric`
+const API_URL = (lat, lon) => `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={API_KEY}&lang=fr&units=metric`
 
 export default function App() {
   const [loading, setLoading] = useState(true)
