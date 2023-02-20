@@ -17,7 +17,7 @@ export default function CurrentWeather({ data }) {
     }, [data])
 
     return (
-        <>
+        <View style={styles.container}>
             <Text style={styles.city}>{data?.city?.name}</Text>
             <Text style={styles.today}>Aujourd'hui</Text>
 
@@ -25,13 +25,18 @@ export default function CurrentWeather({ data }) {
 
             <Text style={styles.temp}>{Math.round(currentWeather?.main.temp)}°C</Text>
             <Text style={styles.description}t>{currentWeather?.weather[0].description}</Text>
-        </>
+        </View>
     )
 }
 
 const COLOR = "#545658"
 
 const styles = StyleSheet.create({
+    container: {
+        marginTop: 60,
+        alignItems: "center",
+        height: "65%"
+    },
     city: {
         fontSize: 36,
         fontWeight: "500",

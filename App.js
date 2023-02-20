@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, ActivityIndicator, Image, ScrollView } from 'react-native';
+import { StyleSheet, View, ActivityIndicator } from 'react-native';
+import Constants from 'expo-constants';
 import * as Location from 'expo-location';
 import axios from 'axios'
 
 import CurrentWeather from './components/CurrentWeather'
 
 // replace the API_KEY with your own
-const API_URL = (lat, lon) => `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid={API_KEY}&lang=fr&units=metric`
+const API_URL = (lat, lon) => `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=745819f7e923406a169c4c0c4e48e8fa&lang=fr&units=metric`
 
 export default function App() {
   const [loading, setLoading] = useState(true)
@@ -20,7 +21,7 @@ export default function App() {
         return
       }
 
-      const userLocation = await Location.getCurrentPositionAsync()
+      const userLocation = await Location.getLastKnownPositionAsync()
       getWeather(userLocation)
     })()
   }, [])
@@ -57,6 +58,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#E2E6E1',
     alignItems: 'center',
+    paddingTop: Constants.statusBarHeight,
     justifyContent: 'center',
     padding: 8,
   },
