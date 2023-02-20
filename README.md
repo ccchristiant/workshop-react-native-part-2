@@ -149,8 +149,9 @@ How would you implement that in the useEffect hook of the Forecasts component ?
 You could add more feature such as :
 
 - More details about the current weather and the forecasts
+- A data refresh
 - A search bar with an optional autocomplete for cities name
-- Store several cities weather page
+- Storing several cities weather page
 
 Or, if you want to customize your app to your tastes, just add some styling.
 
