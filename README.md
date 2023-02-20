@@ -4,6 +4,16 @@
   - [Workshop content](#workshop-content)
   - [Documentation](#documentation)
 - [Setup](#setup)
+- [Step 1 - The Forecasts](#step-1---the-forecasts)
+  - [Step 1.1 - Create the Forecasts component](#step-11---create-the-forecasts-component)
+  - [Step 1.2 - Logic of the Forecasts component](#step-12---logic-of-the-forecasts-component)
+  - [Step 1.3 - Arrange the view](#step-13---arrange-the-view)
+- [Step 2 - The Forecast component](#step-2---the-forecast-component)
+  - [Step 2.1 - Create the Forecast component](#step-21---create-the-forecast-component)
+  - [Step 2.2 - Display the icon for each forecast](#step-22---display-the-icon-for-each-forecast)
+- [Step 3 - Improvements](#step-3---improvements)
+- [Bonus - More features and styling](#bonus---more-features-and-styling)
+- [Conclusion](#conclusion)
 
 ## Introduction
 
